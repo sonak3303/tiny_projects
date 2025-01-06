@@ -1,0 +1,9 @@
+
+
+class Snake:
+    def __init__(self):
+        self.a = []
+        self.move()
+
+    def move(self):
+        print("something pretty ")

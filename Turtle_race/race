@@ -1,0 +1,35 @@
+from turtle import Turtle,Screen
+import random
+is_Race_ON = False
+
+screen = Screen()
+screen.setup(width=500,height=400)   
+the_guess = screen.textinput(title="Winner", prompt="Who will win this race?")
+print(the_guess)
+
+
+
+colors =["red", "blue","green","purple","orange"]
+position = [0,20,-20,40,-40]   
+turtles = []
+for n in range(0,len(colors)):
+    tim = Turtle(shape="turtle")
+    tim.penup()
+    tim.goto(-230,position[n])
+    tim.color(colors[n])
+    turtles.append(tim)
+
+while is_Race_ON == False:
+    for n in turtles:
+        rand_distance = random.randint(0,10)
+        n.forward(rand_distance) 
+        if n.xcor() > 230:
+            win_color = tim.pencolor()
+            is_Race_ON = True
+            if the_guess == win_color:
+                print(f"Congratulations you won the {win_color} turtle won !")
+            else:
+                print(f"Sorry but you lost the {the_guess} did not win !")
+
+
+screen.exitonclick()
